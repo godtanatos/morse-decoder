@@ -38,6 +38,23 @@ const MORSE_TABLE = {
 };
 
 function decode(expr) {
+        return expr.match(/.{1,10}/g)
+        .map(elem => { return elem.match(/.{1,2}/g) })
+        .map(elem => { return elem.filter(el => { return el == "00" ? false : true }) })
+        .map(elem => {
+            return elem.map(e => {
+                if (e == "10") {
+                    e = "."
+                } else if (e == "11") {
+                    e = "-"
+                } return e;
+            })
+        }
+        ).map(elem => {
+            if (elem.join('') == "**********") { return " " }
+            return MORSE_TABLE[elem.join("")]
+
+        }).join(""
     // write your solution here
 }
 
