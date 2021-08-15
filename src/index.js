@@ -54,7 +54,7 @@ function decode(expr) {
             if (elem.join('') == "**********") { return " " }
             return MORSE_TABLE[elem.join("")]
 
-        }).join(""
+        }).join("")
     // write your solution here
 }
 
